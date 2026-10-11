@@ -1,0 +1,734 @@
+/* Responsive helpers for the wedding site */
+@media (min-width: 768px) {
+  .hero-monogram {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .hero-monogram span {
+    font-size: 36px !important;
+  }
+}
+
+/* Layout helper for music section */
+.music-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 800px;
+  margin: 4px auto 0;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.music-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.music-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.desktop-subtitle {
+  display: none !important;
+}
+
+.mobile-subtitle {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .music-container {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 48px;
+    margin-top: 8px;
+  }
+  .music-left {
+    align-items: flex-start;
+    text-align: left;
+    flex: 1;
+    max-width: 380px;
+  }
+  .music-right {
+    flex: 1;
+    max-width: 340px;
+  }
+  .desktop-subtitle {
+    display: block !important;
+  }
+  .mobile-subtitle {
+    display: none !important;
+  }
+}
+/* Hide all browser native video play overlays in CSS */
+video::-webkit-media-controls { display: none !important; }
+video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; }
+video::-webkit-media-controls-overlay-play-button { display: none !important; -webkit-appearance: none; }
+video::-webkit-media-controls-enclosure { display: none !important; }
+
+/* Equalizer bounce animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: scaleY(0.15);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* Confetti Particle Animations */
+@keyframes confetti-fly-left {
+  0% {
+    transform: translate(-10px, 100px) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(65vw, -400px) rotate(720deg) scale(0.4);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-fly-right {
+  0% {
+    transform: translate(10px, 100px) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-65vw, -400px) rotate(-720deg) scale(0.4);
+    opacity: 0;
+  }
+}
+
+/* Showcase section styling */
+.showcase-container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.showcase-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  width: 100%;
+  max-width: 360px;
+}
+
+.showcase-column .photo-wrapper {
+  width: min(220px, 55vw);
+  height: min(220px, 55vw);
+  border-radius: 50%;
+  border: 2px solid #c9942a;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
+}
+
+.showcase-column .photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.showcase-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(38px, 8vw, 56px);
+  color: #c9942a;
+  margin: 0 0 4px;
+  font-weight: normal;
+}
+
+.showcase-title {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(12px, 2vw, 15px);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fdf8f0;
+  opacity: 0.8;
+  margin: 0 0 16px;
+}
+
+.showcase-bio {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(14px, 2vw, 17px);
+  color: #fdf8f0;
+  opacity: 0.7;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 320px;
+}
+
+.showcase-divider {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .showcase-container {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .showcase-divider {
+    display: block;
+    width: 1px;
+    background: rgba(201, 148, 42, 0.2);
+    align-self: stretch;
+    margin: 40px 0;
+  }
+}
+
+/* Venue section responsive styling */
+.venue-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.venue-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+  order: 2; /* Mobile: text & button at bottom */
+}
+
+.venue-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 440px;
+  order: 1; /* Mobile: image at top */
+}
+
+@media (min-width: 768px) {
+  .venue-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+  }
+  .venue-left {
+    align-items: flex-start;
+    text-align: left;
+    order: 1; /* Desktop: text on left */
+  }
+  .venue-right {
+    order: 2; /* Desktop: image on right */
+  }
+  .ganesh-mantra-img {
+    margin-top: var(--mantra-desktop-y, 35px) !important;
+  }
+}
+
+/* Wedding Events Timeline Styling */
+.events-section {
+  padding: clamp(60px, 8vh, 90px) 20px;
+  background: #1A292F; /* Lighter alternating background */
+  color: #fdf8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #2C3730;
+  min-height: auto;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.events-timeline-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Central Vertical Line - Desktop Only */
+.events-center-line {
+  display: none;
+}
+
+/* Mobile Single Column Layout - No vertical line on mobile */
+.event-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.event-card {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  max-width: 500px;
+  background: #152025;
+  border: 1px solid rgba(201, 148, 42, 0.25);
+  border-radius: 16px;
+  padding: clamp(24px, 4vw, 36px) clamp(20px, 4vw, 36px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.event-card:hover {
+  border-color: rgba(201, 148, 42, 0.5);
+}
+
+.event-date-badge-wrapper {
+  margin-bottom: 12px;
+}
+
+.event-date-badge {
+  display: inline-block;
+  background: rgba(201, 148, 42, 0.12);
+  border: 1px solid rgba(201, 148, 42, 0.3);
+  color: #c9942a;
+  font-family: 'EB Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 4px 16px;
+}
+
+.event-fancy-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(34px, 6vw, 48px);
+  color: #c9942a;
+  margin: 0 0 4px 0;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+.event-actual-name {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(12px, 1.8vw, 14px);
+  color: #fdf8f0;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+.event-card-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(201, 148, 42, 0.3);
+  margin: 0 0 16px 0;
+}
+
+.event-details-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 12px;
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(13px, 1.8vw, 15px);
+  color: #fdf8f0;
+  opacity: 0.9;
+  margin: 0 0 12px 0;
+}
+
+.event-detail-bullet {
+  color: #c9942a;
+  opacity: 0.5;
+}
+
+.event-dress-code {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(12px, 1.6vw, 14px);
+  color: #fdf8f0;
+  opacity: 0.85;
+  margin: 0 0 14px 0;
+  letter-spacing: 0.5px;
+}
+
+.event-description {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(14px, 2vw, 16px);
+  font-style: italic;
+  color: #fdf8f0;
+  opacity: 0.75;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Desktop Alternating Left/Right Layout & Markers */
+.event-marker-desktop,
+.event-connector {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .events-timeline-wrapper {
+    gap: 52px;
+  }
+
+  .events-center-line {
+    display: block;
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(201, 148, 42, 0.1) 0%, rgba(201, 148, 42, 0.6) 15%, rgba(201, 148, 42, 0.6) 85%, rgba(201, 148, 42, 0.1) 100%);
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .event-row.left-event {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .event-row.right-event {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .event-row.left-event .event-card {
+    width: calc(50% - 44px);
+    max-width: 440px;
+    text-align: right;
+    align-items: flex-end;
+    padding-left: 16px;
+  }
+
+  .event-row.left-event .event-details-row {
+    justify-content: flex-end;
+  }
+
+  .event-row.left-event .event-description {
+    text-align: right;
+  }
+
+  .event-row.right-event .event-card {
+    width: calc(50% - 44px);
+    max-width: 440px;
+    text-align: left;
+    align-items: flex-start;
+    padding-right: 16px;
+  }
+
+  .event-row.right-event .event-details-row {
+    justify-content: flex-start;
+  }
+
+  .event-row.right-event .event-description {
+    text-align: left;
+  }
+
+  .event-fancy-name {
+    padding-top: var(--desktop-padding-top, 0px);
+  }
+
+  /* Single Event Layout (Desktop) */
+  .event-row.single-event-row {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .event-row.single-event-row .event-card {
+    width: 100%;
+    max-width: 580px;
+    text-align: center;
+    align-items: center;
+    padding-left: clamp(20px, 4vw, 36px);
+    padding-right: clamp(20px, 4vw, 36px);
+  }
+
+  .event-row.single-event-row .event-details-row {
+    justify-content: center;
+  }
+
+  .event-row.single-event-row .event-description {
+    text-align: center;
+  }
+
+  .event-caricature-wrapper.caricature-right {
+    top: -46px !important;
+    right: -16px !important;
+  }
+
+  .event-caricature-wrapper.caricature-left {
+    top: -46px !important;
+    left: -16px !important;
+  }
+
+  /* Desktop Marker & Connector */
+  .event-marker-desktop {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #1A292F;
+    border: 1.5px solid #c9942a;
+    box-shadow: 0 0 14px rgba(201, 148, 42, 0.35);
+    align-items: center;
+    justify-content: center;
+    color: #c9942a;
+    font-size: 18px;
+    z-index: 3;
+  }
+
+  /* Connector line from card to central line */
+  .event-connector {
+    display: block;
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    background: rgba(201, 148, 42, 0.35);
+    z-index: 1;
+  }
+
+  .event-row.left-event .event-connector {
+    left: calc(50% - 44px);
+    right: 50%;
+  }
+
+  .event-row.right-event .event-connector {
+    left: 50%;
+    right: calc(50% - 44px);
+  }
+}
+
+/* ── RSVP Section Responsive Styles ── */
+.rsvp-section {
+  background: #1A292F;
+  border-top: 1px solid #2C3730;
+  border-bottom: 1px solid #2C3730;
+  padding: 60px 24px;
+  color: #fdf8f0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rsvp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rsvp-question-text {
+  font-family: 'Pinyon Script', cursive;
+  font-size: clamp(36px, 8vw, 56px);
+  color: #c9942a;
+  margin: 0;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+.rsvp-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #dfa943 0%, #c9942a 100%);
+  color: #152025;
+  border: none;
+  padding: 14px 36px;
+  font-family: 'EB Garamond', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(201, 148, 42, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .rsvp-container {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    gap: 32px;
+  }
+}
+
+/* ── Invited By Section Responsive Grid ── */
+.invited-by-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── Invited By Section Responsive Grid ── */
+.invited-by-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bride-column {
+  width: 100%;
+  max-width: min(94vw, 500px);
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .invited-by-grid {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .bride-column {
+    max-width: 500px;
+  }
+}
+
+.family-card {
+  background: linear-gradient(145deg, #1A292F 0%, #131E23 100%);
+  border: 1px solid rgba(201, 148, 42, 0.3);
+  border-radius: 20px;
+  padding: clamp(20px, 3.5vw, 32px) clamp(6px, 1.5vw, 12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.family-role-label {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  color: #c9942a;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.family-person-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(26px, 4.5vw, 42px);
+  color: #fdf8f0;
+  margin: 0 0 16px 0;
+  font-weight: normal;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.family-card-divider {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9942a, transparent);
+  margin: 0 auto 20px auto;
+}
+
+.family-parents-label {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  color: #c9942a;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.family-parents-name {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(18.5px, 3.5vw, 24px);
+  color: #fdf8f0;
+  margin: 6px 0;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  max-width: 100%;
+  text-align: center;
+}
+
+.family-parents-name.family-subtext {
+  font-size: clamp(15.5px, 2.8vw, 20px);
+  margin-top: 8px;
+}
+
+/* ── Overlaid Play Button Pulse Animation ── */
+@keyframes pulse-play-btn {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.45);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.525);
+  }
+}
+
+.pulsing-play-btn {
+  transform: translate(-50%, -50%) scale(0.45);
+  animation: pulse-play-btn 3.27s ease-in-out infinite;
+}
+
+/* ── Ganesh Slide Sizing & Alignment (Identical on Mobile & Desktop) ── */
+.ganesh-section {
+  height: 100% !important;
+  min-height: 100% !important;
+  padding: 20px 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+}
+
