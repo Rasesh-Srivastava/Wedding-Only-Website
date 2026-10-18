@@ -193,7 +193,7 @@ function App() {
                       width: '100%'
                     }}
                   >
-                    Tap to set the mood
+                    Tap <span className="caption-below">below </span>to set the mood
                   </h2>
                   
                   {/* Subtitle - Desktop only */}
