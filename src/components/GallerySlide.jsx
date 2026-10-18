@@ -143,6 +143,19 @@ export default function GallerySlide() {
           <AnimatePresence>
             {((!isLit) || (isLit && isRopeHovered)) && (
               <motion.div
+                role="button"
+                tabIndex={0}
+                aria-label={!isLit ? "Turn lights on" : "Turn lights off"}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePullRope();
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handlePullRope();
+                  }
+                }}
                 initial={{ opacity: 0, x: -8 }}
                 animate={{
                   opacity: 1,
@@ -167,7 +180,10 @@ export default function GallerySlide() {
                   boxShadow: '0 4px 16px rgba(0,0,0,0.5)',
                   backdropFilter: 'blur(6px)',
                   zIndex: 110,
-                  pointerEvents: 'none'
+                  cursor: 'pointer',
+                  userSelect: 'none',
+                  touchAction: 'manipulation',
+                  WebkitTapHighlightColor: 'transparent'
                 }}
               >
                 {/* Pointed right-facing arrow */}
