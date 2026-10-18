@@ -193,7 +193,7 @@ function App() {
                       width: '100%'
                     }}
                   >
-                    Tap to set the mood
+                    Tap <span className="caption-below">below </span>to set the mood
                   </h2>
                   
                   {/* Subtitle - Desktop only */}
@@ -248,23 +248,47 @@ function App() {
                 <div className="music-right">
                   {/* Stereo image with positionTarget anchor */}
                   <div
+                    role="button"
+                    tabIndex={0}
+                    aria-label={isPlaying ? "Pause wedding music" : "Play wedding music"}
+                    aria-pressed={isPlaying}
+                    onClick={(e) => {
+                      if (playBtnRef.current && playBtnRef.current.contains(e.target)) {
+                        return
+                      }
+                      togglePlay()
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault()
+                        togglePlay()
+                      }
+                    }}
                     style={{
                       position: 'relative',
                       display: 'inline-block',
                       width: '100%',
                       maxWidth: '340px',
+                      cursor: 'pointer',
+                      userSelect: 'none',
+                      touchAction: 'manipulation',
+                      WebkitTapHighlightColor: 'transparent'
                     }}
                   >
                     <img
                       src={import.meta.env.BASE_URL + 'stereo.png'}
                       alt="Wedding Radio"
+                      draggable={false}
                       onLoad={syncButtonPosition}
                       style={{
                         width: '100%',
                         height: 'auto',
                         objectFit: 'contain',
                         display: 'block',
-                        filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.4))'
+                        filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.4))',
+                        userSelect: 'none',
+                        touchAction: 'manipulation',
+                        WebkitTapHighlightColor: 'transparent'
                       }}
                     />
                     
@@ -340,7 +364,12 @@ function App() {
               {/* Overlaid Play/Pause Button positioned dynamically */}
               <button
                 ref={playBtnRef}
-                onClick={togglePlay}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  togglePlay()
+                }}
+                aria-label={isPlaying ? "Pause music" : "Play music"}
+                aria-pressed={isPlaying}
                 className={isPlaying ? '' : 'pulsing-play-btn'}
                 style={{
                   position: 'fixed',

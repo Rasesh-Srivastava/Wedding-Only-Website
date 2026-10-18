@@ -254,7 +254,7 @@ export default function CountdownSlide() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          touchAction: 'none' // Prevent default touch actions (scrolling) during scratch
+          touchAction: isRevealed ? 'pan-y' : 'none'
         }}>
           {/* revealed date overlay underneath */}
           <div style={{
@@ -263,7 +263,9 @@ export default function CountdownSlide() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            height: '100%'
+            height: '100%',
+            touchAction: 'pan-y',
+            userSelect: 'none'
           }}>
             <p style={{
               fontFamily: "'EB Garamond', serif",
@@ -291,13 +293,13 @@ export default function CountdownSlide() {
           {/* canvas scratch layer */}
           <canvas
             ref={canvasRef}
-            onMouseDown={handleStart}
-            onMouseMove={handleMove}
-            onMouseUp={handleEnd}
-            onMouseLeave={handleEnd}
-            onTouchStart={handleStart}
-            onTouchMove={handleMove}
-            onTouchEnd={handleEnd}
+            onMouseDown={isRevealed ? undefined : handleStart}
+            onMouseMove={isRevealed ? undefined : handleMove}
+            onMouseUp={isRevealed ? undefined : handleEnd}
+            onMouseLeave={isRevealed ? undefined : handleEnd}
+            onTouchStart={isRevealed ? undefined : handleStart}
+            onTouchMove={isRevealed ? undefined : handleMove}
+            onTouchEnd={isRevealed ? undefined : handleEnd}
             style={{
               position: 'absolute',
               top: 0,
@@ -308,6 +310,7 @@ export default function CountdownSlide() {
               transition: 'opacity 0.5s ease',
               opacity: isRevealed ? 0 : 1,
               pointerEvents: isRevealed ? 'none' : 'auto',
+              display: isRevealed ? 'none' : 'block',
               borderRadius: '14px'
             }}
           />
