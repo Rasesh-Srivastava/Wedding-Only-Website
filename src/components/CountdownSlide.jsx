@@ -254,7 +254,7 @@ export default function CountdownSlide() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          touchAction: isRevealed ? 'auto' : 'none' // Prevent scrolling only during scratch; restore scrolling once revealed
+          touchAction: isRevealed ? 'pan-y' : 'none'
         }}>
           {/* revealed date overlay underneath */}
           <div style={{
@@ -263,7 +263,9 @@ export default function CountdownSlide() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            height: '100%'
+            height: '100%',
+            touchAction: 'pan-y',
+            userSelect: 'none'
           }}>
             <p style={{
               fontFamily: "'EB Garamond', serif",
@@ -308,7 +310,7 @@ export default function CountdownSlide() {
               transition: 'opacity 0.5s ease',
               opacity: isRevealed ? 0 : 1,
               pointerEvents: isRevealed ? 'none' : 'auto',
-              touchAction: isRevealed ? 'auto' : 'none',
+              display: isRevealed ? 'none' : 'block',
               borderRadius: '14px'
             }}
           />
